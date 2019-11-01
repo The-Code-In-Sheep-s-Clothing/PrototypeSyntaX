@@ -1,0 +1,13 @@
+Game tictactoe 2
+Board board 11 7
+Piece piece
+
+Turn turn_option_1:
+  Place piece IsEmpty and (IsNeighboring Vertically Anything or Last Row)
+
+Win win_name:
+  4 InARow AllDirections OfSamePlayer
+
+Print:
+  Player1: 'x'
+  Player2: 'o'

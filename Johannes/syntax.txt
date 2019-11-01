@@ -1,0 +1,27 @@
+Game {game_name} {number_players}
+
+Board {board_name} {x_size} {y_size}
+
+Piece {piece_name}
+
+Turn {turn_name}:
+    {Place | Move}
+
+Win {win_name}:
+   {Condition}
+
+Print:
+   Player {number}: {string}
+   Piece {type}:  {string}
+
+Placements:
+Place {(optional)board_name} {piece_name} {(optional) Requiring {Condition}}
+Move {(optional)board_name} {piece_name} X+{x_movement} Y+{y_movement} {(optional) Requiring {Condition}}
+
+Conditions:
+{number} InARow {Vertically | Horizontally | Diagonally | AllDirections} {OfSameKind | OfSamePlayer | Identical | Anything}
+IsNeighboring {Vertically | Horizontally | Diagonally | AllDirections} {OfSameKind | OfSamePlayer | Identical | Anything}
+IsEmpty
+{Condition} and {Condition}
+{Condition} or {Condition}
+{First | Last | Nth} {Row | Column}

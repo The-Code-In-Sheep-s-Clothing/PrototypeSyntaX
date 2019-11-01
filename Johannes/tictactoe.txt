@@ -1,0 +1,15 @@
+Game tictactoe 2
+
+Board board 3 3
+
+Piece piece
+
+Turn turn_option_1:
+  Place piece IsEmpty
+
+Win win_name:
+  3 InARow AllDirections OfSamePlayer
+
+Print:
+  Player1: 'x'
+  Player2: 'o'
