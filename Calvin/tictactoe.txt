@@ -1,0 +1,33 @@
+board board1:
+    dimensions:
+        3, 3;
+    states:
+        X, Blank, O;
+    initial:
+        ALL = Blank
+
+move move1 (userInput coordinate) 
+    if board[coordinate] != Blank:
+        invalid;
+    board[coordinate] = player;
+
+win wincondtion1 (): 
+    FOR_ALL in board:
+        if INROW(3, player):
+            win;
+        if INCOL(3, player):
+            win;
+        if INDIAG(3, player):
+            win;
+    notwin; 
+
+flow flow1 ():
+    move1; 
+    EVALUATE_GAME;
+    player = NEXT;
+    
+game:
+    board: board1;
+    move: move1;
+    players: X, O;
+    flow: flow1;

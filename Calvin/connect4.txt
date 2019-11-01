@@ -1,0 +1,36 @@
+#!spiel
+
+board board1 ():
+    dimensions:
+        8, 6;
+    states:
+        Red, Yellow, Blank;
+    initial:
+        ALL = Blank;
+
+move move1 (userInput col):
+    if board[8][col] != Blank:
+        invalid;
+    board[8][col] = player;
+
+win wincondition1 ():
+    FOR_ALL in board:
+        if INROW(4, player):
+            win;
+    notwin;
+
+flow flow1 ():
+    DISPLAY;
+    move1;
+    # Gravitate towards zero on second dimension
+    GRAVITATE (2, 0);
+    EVALUATE_GAME; 
+    player = NEXT; 
+
+game:
+    board: board1;
+    move: move1;
+    flow: flow1;
+    players: Red, Yellow;
+    
+     
