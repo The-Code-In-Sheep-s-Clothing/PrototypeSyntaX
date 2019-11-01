@@ -1,0 +1,136 @@
+tic tac toe:
+
+MakeBoard(3, 3)
+SetPlayers("O", "X")
+
+while true:
+  Print Board
+
+  do:
+    Print "player 1 move"
+    input(x)
+    input(y)
+  while Board(x, y) != Empty
+
+  SetBoard((x, y), Players("X"))
+
+  if 3 Players("X") in a row:
+    Print Board
+    GameOver("player 1 wins") //exits program and prints message
+  if 3 Players("O") in a row:
+    Print Board
+    GameOver("player 2 wins")
+
+
+  Print Board
+  do:
+    Print "player 2 move"
+    input(x)
+    input(y)
+  while Board(x, y) != Empty
+
+  SetBoard((x, y), Players("O"))
+
+  if 3 Players("X") in a row:
+    Print Board
+    GameOver("player 1 wins") //exits program and prints message
+  if 3 Players("O") in a row:
+    Print Board
+    GameOver("player 2 wins")
+
+
+
+connect 4
+
+MakeBoard(6, 7)
+SetPlayers("red", "blue")
+
+while true:
+  Print Board
+
+  do:
+    Print "player 1 move"
+    input(x)
+    input(y)
+  while Board(x, y) != Empty || Board(x, y-1) == Empty
+
+  SetBoard((x, y), Players("red"))
+
+  if 4 Players("red") in a row:
+    Print Board
+    GameOver("player 1 wins") //exits program and prints message
+  if 4 Players("blue") in a row:
+    Print Board
+    GameOver("player 2 wins")
+
+  Print Board
+  do:
+    Print "player 2 move"
+    input(x)
+    input(y)
+  while Board(x, y) != Empty || Board(x, y-1) == Empty
+
+  SetBoard((x, y), Players("blue"))
+
+  if 4 Players("red") in a row:
+    Print Board
+    GameOver("player 1 wins") //exits program and prints message
+  if 4 Players("blue") in a row:
+    Print Board
+    GameOver("player 2 wins")
+
+
+tic tac toe variant:
+
+MakeBoard(3, 3)
+SetPlayers("O", "X")
+
+checkwin():
+  if 3 Players("X") in a row:
+    Print Board
+    GameOver("player 1 wins") //exits program and prints message
+  if 3 Players("O") in a row:
+    Print Board
+    GameOver("player 2 wins")
+
+move(player)
+  do:
+    Print "player " + player + "" move"
+    input(x)
+    input(y)
+  while Board(x, y) != Empty
+  SetBoard((x, y), Players(player))
+
+var p1pass, p2pass
+while true:
+  Print Board
+
+  do:
+    Print "Choose an option: 1. pass turn 2. move now"
+    input(option)
+  while not(option == 1 or option == 2)
+
+  if option == 1:
+    p1pass = true
+  else:
+    move("red")
+    if p1pass:
+      move("red")
+      p1pass = false
+
+  checkwin()
+
+  do:
+    Print "Choose an option: 1. pass turn 2. move now"
+    input(option)
+  while not(option == 1 or option == 2)
+
+  if option == 1:
+    p1pass = true
+  else:
+    move("blue")
+    if p1pass:
+      move("blue")
+      p1pass = false
+
+  checkwin()
