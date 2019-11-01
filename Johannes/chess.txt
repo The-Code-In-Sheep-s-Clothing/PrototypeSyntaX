@@ -1,0 +1,85 @@
+Game chess 2
+
+Piece pawn
+Piece rook
+Piece knight
+Piece bishop
+Piece king
+Piece queen
+
+Board board 8 8
+
+InitBoard:
+  rook Player 1 | knight Player 1 | bishop Player 1 | king Player 1 | queen Player 1 | bishop Player 1 | knight Player 1 | rook Player 1
+  pawn PLayer 1 | pawn PLayer 1   | pawn PLayer 1   | pawn PLayer 1 | pawn PLayer 1  | pawn PLayer 1   | pawn PLayer 1   | pawn PLayer 1
+  _|_|_|_|_|_|_
+  _|_|_|_|_|_|_
+  _|_|_|_|_|_|_
+  _|_|_|_|_|_|_
+  _|_|_|_|_|_|_
+  _|_|_|_|_|_|_
+  pawn PLayer 2 | pawn PLayer 2   | pawn PLayer 2   | pawn PLayer 2 | pawn PLayer 2  | pawn PLayer 2   | pawn PLayer 2   | pawn PLayer 2
+  rook Player 2 | knight Player 2 | bishop Player 2 | king Player 2 | queen Player 2 | bishop Player 2 | knight Player 2 | rook Player 2
+
+Turn long_move_pawn_p1:
+  Move pawn X Y-2 Requiring IsPlayer 1 and 7th Row
+Turn short_move_pawn_p1:
+  Move pawn X Y-1 Requiring IsPlayer 1
+Turn capture_pawn_p1:
+  Move pawn X+1 Y-1 Requiring IsPlayer 1 and not IsEmpty X+1 Y-1
+  Move pawn X+1 Y+1 Requiring IsPlayer 1 and not IsEmpty X+1 Y+1
+
+Turn long_move_pawn_p2:
+  Move pawn X Y+2 Requiring IsPlayer 2 and 2nd Row
+Turn short_move_pawn_p2:
+  Move pawn X Y+1 Requiring IsPlayer 2
+Turn capture_pawn_p2:
+  Move pawn X-1 Y-1 Requiring IsPlayer 2 and not IsEmpty X-1 Y-1
+  Move pawn X-1 Y+1 Requiring IsPlayer 2 and not IsEmpty X-1 Y+1
+
+Turn bishop:
+  Move bishop X+m Y+m Requiring Count Between X Y X+m Y+m == 0
+  Move bishop X-m Y+m Requiring Count Between X Y X-m Y+m == 0
+
+Turn rook
+  Move bishop X+m Y Requiring Count Between X Y X+m Y == 0
+  Move bishop X Y+m Requiring Count Between X Y X Y+m == 0
+
+
+Turn queen
+  Move queen X+m Y+m Requiring Count Between X Y X+m Y+m == 0
+  Move queen X-m Y+m Requiring Count Between X Y X-m Y+m == 0
+  Move queen X+m Y Requiring Count Between X Y X+m Y == 0
+  Move queen X Y+m Requiring Count Between X Y X Y+m == 0
+
+Turn king
+  Move king X Y+1
+  Move king X+1 Y
+  Move king X Y-1
+  Move king X-1 Y
+  Move king X+1 Y-1
+  Move king X+1 Y+1
+  Move king X-1 Y-1
+  Move king X-1 Y+1
+
+Turn knight
+  Move knight X+2 Y+1
+  Move knight X+2 Y-1
+  Move knight X-2 Y+1
+  Move knight X-2 Y-1
+  Move knight X+1 Y+2
+  Move knight X-1 Y+2
+  Move knight X+1 Y-2
+  Move knight X-2 Y-2
+
+Win win_name:
+  not OtherPlayer Owns king
+
+Print:
+  Player1: 'w'
+  Player2: 'b'
+  bishop: 'B'
+  knight: 'N'
+  queen: 'Q'
+  king: 'K'
+  rook: 'R'

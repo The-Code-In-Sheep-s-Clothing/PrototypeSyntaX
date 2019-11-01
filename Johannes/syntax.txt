@@ -2,6 +2,12 @@ Game {game_name} {number_players}
 
 Board {board_name} {x_size} {y_size}
 
+InitBoard: {
+   piece1 Player 1 | piece2 Player 2 | ect with _ for empty
+   _               | _               | _
+   piece2 Player 1 | piece1 Player 1 | _
+}
+
 Piece {piece_name}
 
 Turn {turn_name}:
@@ -21,7 +27,14 @@ Move {(optional)board_name} {piece_name} X+{x_movement} Y+{y_movement} {(optiona
 Conditions:
 {number} InARow {Vertically | Horizontally | Diagonally | AllDirections} {OfSameKind | OfSamePlayer | Identical | Anything}
 IsNeighboring {Vertically | Horizontally | Diagonally | AllDirections} {OfSameKind | OfSamePlayer | Identical | Anything}
-IsEmpty
+IsEmpty {optional relative pos}
+IsPlayer {x}
+Between {position1} {position2} //returns a list of pieces
+Count {list}
 {Condition} and {Condition}
 {Condition} or {Condition}
+not {condition}
+{number} == {number}
+OtherPlayer {(option) player number}{conidition} //switches check from you to other players
+Owns {Piece} //checks if current player owns a piece
 {First | Last | Nth} {Row | Column}
