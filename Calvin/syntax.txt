@@ -1,0 +1,21 @@
+#!spiel
+
+# Boards have a number of dimensions and the length of each dimension, and state for each space
+board board_name: 
+    dimensions: 
+        dim_size_1,
+        dim_size_2,
+        dim_size_3,
+        ...;
+    states: 
+        state_name_1,
+        state_name_2,
+        state_name_3;
+    initial:
+        
+
+# Rules can return either invalid or valid
+rules:
+    if board_name at (x,y,z) ==  
+        
+ 

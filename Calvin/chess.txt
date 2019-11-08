@@ -1,0 +1,32 @@
+#!spiel
+
+board board1 ():
+    dimensions:
+        8, 8;
+    states:
+        White: 
+            King, Queen, Knight, Rook, Pawn, Bishop;
+        Black:
+            King, Queen, Knight, Rook, Pawn, Bishop;
+        Piece:
+            White, Black;
+        Blank, Piece;
+    initial:
+        ALL = Blank;
+        FOR_ALL in board[1]:
+            Piece.Black.Pawn;
+        FOR_ALL in board[6]:
+            Piece.White.Pawn;
+        ...
+ 
+
+move move1 (userInput srcrow, userInput srccol, userInput dstrow, userInput dstcol):
+    if board[srcrow][srccol] != player:
+        invalid;
+    if board[srcrow][srccol] == King:
+        ... 
+
+win wincondition1 ():
+    FOR_ALL in board:
+        if space
+    
