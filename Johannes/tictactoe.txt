@@ -2,12 +2,12 @@ Game tictactoe 2 Players
 
 Board board 3 3
 
-Piece piece:
-  Player1: 'x'
-  Player2: 'o'
-
-Turn turn_option_1:
-  Place piece IsEmpty
+Piece piece 5:
+  Display:
+    Player1: 'x'
+    Player2: 'o'
+  Turn:
+    Place IsEmpty
 
 Win win_name:
   3 InARow AllDirections OfSamePlayer
