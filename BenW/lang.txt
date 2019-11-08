@@ -18,9 +18,9 @@ Setup
 
 Move (Tile)
 	Condition
-empty
+		empty
 	Effect
-place player stone
+		place player stone
 
 
 End
@@ -88,7 +88,7 @@ Setup
 Move (tile t)
 	Condition
 		Not empty
-		And Any Tile in line t2
+		Any Tile t2 in line
 			Condition:
 				owner player
 				All Tiles Between t t2
@@ -96,7 +96,7 @@ Move (tile t)
 						Owner not player
 	Effect
 		Place stone 
-		Any Tile in line t2
+		Any Tile t2 in line
 			Condition:
 				owner player
 				All Tiles Between t t2
@@ -112,14 +112,14 @@ Move (tile t)
 End	
 	No Possible Moves;
 
-
+Chess
 
 Board 
 8 by 8
 
 Players  
-p1
-p2 
+	p1
+	p2 
 
 Pieces
 	pawn 
@@ -164,10 +164,23 @@ Setup
 	(8,5)
 		Place p2 king
 
-Move (Tile t1 Tile t2
+Move (Tile t1 Tile t2)
 	Condition: 
-t1 not empty
-if(t1 has pawn) 
-	t2 
+		t1 not empty
+		t1 piece is pawn
+			player is p1
+				t1 row is 2
+					t2 is t1 +2 row AND t2 is empty
+				OR t2 is t1 +1 row AND t2 is empty
+				OR t2 is t1 +1 row +/-1 column AND t2 owner is not player
+			player is p2
+				t1 row is 7
+					t2 is t1 -2 row AND t2 is empty
+				OR t2 is t1 -1 row and t2 is empty
+				OR t2 is t1 -1 row +/- 1 column AND t2 owner is not player
+			
+			
+		
+				
 	
 		 
