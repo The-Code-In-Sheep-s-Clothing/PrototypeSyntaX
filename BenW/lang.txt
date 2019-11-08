@@ -3,11 +3,11 @@ tic-tac-toe
 Board 3 by 3
 
 Players 
-p1 
-p2
+	p1 
+	p2
 
 Pieces
- stone
+ 	stone
 
 All Players 
 	Have unlimited stone “x” “o”
@@ -25,7 +25,7 @@ place player stone
 
 End
 	All (any, any) || All Tiles 
-not empty -> draw
+		not empty -> draw
 	3 Adjacent (any, any)  || 3 Adjacent Tiles in any line
 		owner player -> player wins     
 
@@ -52,13 +52,13 @@ Move (tile)
 	Effect
 		(any, column) || Any Tile in column
 			Condition: 
-Empty AND row 1
+				Empty AND row 1
 				OR (row -1, column) || Tile -1 column 
 					Condition: 
 						Not empty
-			Effect 
-				Place circle
-End
+					Effect: 
+						Place circle
+GameEnd
 	All (any, any) || All tiles
 		Not empty -> draw
 	4 adjacent (any, any) || 4 adjacent tiles in any line 
@@ -91,7 +91,7 @@ Move (tile t)
 		And Any Tile in line t2
 			Condition:
 				owner player
-All Tiles Between t t2
+				All Tiles Between t t2
 					Condition
 						Owner not player
 	Effect
@@ -99,7 +99,7 @@ All Tiles Between t t2
 		Any Tile in line t2
 			Condition:
 				owner player
-All Tiles Between t t2
+				All Tiles Between t t2
 					Condition
 						Owner not player
 			Effect:
@@ -109,7 +109,8 @@ All Tiles Between t t2
 						Place stone 
 			
 	
-End	No Possible Moves;
+End	
+	No Possible Moves;
 
 
 
