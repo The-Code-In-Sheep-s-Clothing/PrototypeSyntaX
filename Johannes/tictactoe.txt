@@ -6,8 +6,9 @@ Piece piece 5:
   Display:
     Player1: 'x'
     Player2: 'o'
-  Turn:
-    Place IsEmpty
+    
+Turn:
+  Place piece IsEmpty
 
 Win win_name:
   3 InARow AllDirections OfSamePlayer
