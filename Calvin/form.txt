@@ -1,0 +1,22 @@
+dimensions: 3x3x3
+pieces: X, O
+players: 2
+flow:
+    player1: place X
+    player2: place O
+rules:
+    Cannot place on non-empty square
+    Must place on square
+win-condition:
+    3-in-a-row of same piece
+stalemate-condition:
+    no empty squares
+
+dimensions: 4x4
+pieces: red, yellow
+flow:
+    player1: place red in 
+    player2: place yellow
+rules:
+    Must play non-empty row
+
