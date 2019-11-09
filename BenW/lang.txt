@@ -1,0 +1,186 @@
+tic-tac-toe
+
+Board 3 by 3
+
+Players 
+	p1 
+	p2
+
+Pieces
+ 	stone
+
+All Players 
+	Have unlimited stone “x” “o”
+
+
+Setup
+	
+
+Move (Tile)
+	Condition
+		empty
+	Effect
+		place player stone
+
+
+End
+	All (any, any) || All Tiles 
+		not empty -> draw
+	3 Adjacent (any, any)  || 3 Adjacent Tiles in any line
+		owner player -> player wins     
+
+
+Connect 4
+
+Board 6 by 7 
+
+Players
+	p1 
+	p2 
+
+Pieces 
+	circle
+
+All players
+	Have unlimited piece “r” “b”
+
+Steup 
+
+Move (tile) 
+	Condition 
+		empty
+	Effect
+		(any, column) || Any Tile in column
+			Condition: 
+				Empty AND row 1
+				OR (row -1, column) || Tile -1 column 
+					Condition: 
+						Not empty
+					Effect: 
+						Place circle
+GameEnd
+	All (any, any) || All tiles
+		Not empty -> draw
+	4 adjacent (any, any) || 4 adjacent tiles in any line 
+		Has piece owner player -> player wins
+
+
+Othello 
+
+Board 8 by 8
+
+Players 
+	p1 
+	p2 
+
+Pieces
+	stone
+
+All Players 
+	Have unlimited stone“w” “b”
+
+Setup
+	(4,4) (5,5)
+		place p1 stone
+	(4,5) (5,4)
+		place p2 stone
+
+Move (tile t)
+	Condition
+		Not empty
+		Any Tile t2 in line
+			Condition:
+				owner player
+				All Tiles Between t t2
+					Condition
+						Owner not player
+	Effect
+		Place stone 
+		Any Tile t2 in line
+			Condition:
+				owner player
+				All Tiles Between t t2
+					Condition
+						Owner not player
+			Effect:
+				All Tiles Between t t2
+					Effect 
+						Remove stone
+						Place stone 
+			
+	
+End	
+	No Possible Moves;
+
+Chess
+
+Board 
+8 by 8
+
+Players  
+	p1
+	p2 
+
+Pieces
+	pawn 
+	castle 
+	rook 
+	bishop 
+	queen 
+	king 
+
+All Players
+	Have 8 pawn “wp” “bp”
+	Have 2 castle “wc” “bc”
+	Have 2 rook “wr” “br”
+	Have 2 bishop “wb” “bn”
+	Have 2 queen “wq” “bq”
+	Have 2 king “wk” “bk”
+
+
+Setup 
+	All Tiles in Row 2  || (2, any) 
+		Place p1 pawn
+	(1,1) and (1,8)
+		Place p1 castle
+	(1,2) and (1,7)
+		Place p1 rook
+	(1,3) and (1,6)
+		Place p1 bishop
+	(1,4)
+		Place p1 queen
+	(1,5)
+		Place p1 king
+	All Tiles in Row 7 || (7, any)
+		Place p2 pawn
+	(8,1) and (8,8)
+		Place p2 castle
+	(8,2) and (8,7)
+		Place p2 rook
+	(8,3) and (8,6)
+		Place p2 bishop
+	(8,4)
+		Place p2 queen
+	(8,5)
+		Place p2 king
+
+Move (Tile t1 Tile t2)
+	Condition: 
+		t1 not empty
+		t1 piece is pawn
+			player is p1
+				t1 row is 2
+					t2 is t1 +2 row AND t2 is empty
+				OR t2 is t1 +1 row AND t2 is empty
+				OR t2 is t1 +1 row +/-1 column AND t2 owner is not player
+			player is p2
+				t1 row is 7
+					t2 is t1 -2 row AND t2 is empty
+				OR t2 is t1 -1 row and t2 is empty
+				OR t2 is t1 -1 row +/- 1 column AND t2 owner is not player
+			
+			
+		
+				
+	
+		 
